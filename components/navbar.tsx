@@ -27,6 +27,7 @@ import { Button } from "./ui/button"
 import { Separator } from "@/components/ui/separator"
 import { ModeToggle } from "@/components/set-theme"
 import { PersonIcon } from "@radix-ui/react-icons"
+import { PlusIcon } from "@radix-ui/react-icons"
 import Image from "next/image"
 import icon from "@/public/images/icon.svg"
 
@@ -52,22 +53,25 @@ export default function Navbar() {
                     <NavigationMenuList>
                         <NavigationMenuItem className="bg-transparent">
                             <Link className="bg-transparent" href="/" legacyBehavior passHref>
-                                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} bg-transparent`}>
+                                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} bg-transparent text-white`}>
                                     Dashboard
                                 </NavigationMenuLink>
                             </Link>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
                             <Link href="/previous-appointment" legacyBehavior passHref>
-                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} bg-transparent text-white`}>
                                     Previous Appointments
                                 </NavigationMenuLink>
                             </Link>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
                             <Link href="/new-appointment" legacyBehavior passHref>
-                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                <NavigationMenuLink className={`${navigationMenuTriggerStyle()}`}>
+                                    <div className="flex flex-row justify-center items-center gap-1">
+                                    <PlusIcon className="h-4 w-4"/>
                                     New Appointment
+                                    </div>
                                 </NavigationMenuLink>
                             </Link>
                         </NavigationMenuItem>
@@ -75,8 +79,8 @@ export default function Navbar() {
                 </NavigationMenu>
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <Button variant="outline">
-                            <PersonIcon />
+                        <Button variant="ghost" className="text-white">
+                            <PersonIcon className="h-6 w-6" />
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-56">
@@ -97,16 +101,6 @@ export default function Navbar() {
                             </DropdownMenuItem>
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />
-                        {/* <DropdownMenuItem>
-                            <DropdownMenu>
-                                    <Button variant="ghost" size="icon" className="w-full"
-                                    onClick={() => theme=="light" ? setTheme("light") : setTheme("dark")}>
-                                        <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                                        <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                                        <span className="sr-only">Toggle theme</span>
-                                    </Button>
-                            </DropdownMenu>
-                        </DropdownMenuItem> */}
                         <DropdownMenuItem>
 
                             Log out
@@ -114,7 +108,7 @@ export default function Navbar() {
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
-                <ModeToggle />
+                {/* <ModeToggle /> */}
             </div>
 
         </nav>

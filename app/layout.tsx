@@ -34,7 +34,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main>
+          <main className="flex-1 flex flex-col min-h-screen">
             <Navbar />
             {children}
           </main>
